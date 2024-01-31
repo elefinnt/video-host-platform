@@ -7,12 +7,12 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-import { Attachement, Course } from "@prisma/client";
+import { Attachment, Course } from "@prisma/client";
 import Image from "next/image";
 import { FileUpload } from "@/components/file-upload";
 
 interface AttachmentFormProps {
-  initialData: Course & { attachments: Attachement[] };
+  initialData: Course & { attachments: Attachment[] };
   courseId: string;
 }
 
@@ -74,7 +74,7 @@ export const AttachmentForm = ({
             endpoint="courseImage"
             onChange={(url) => {
               if (url) {
-                onSubmit({ imageUrl: url });
+                onSubmit({ url: url });
               }
             }}
           />
