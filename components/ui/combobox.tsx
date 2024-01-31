@@ -19,15 +19,12 @@ import {
 } from "@/components/ui/popover";
 
 interface ComboboxProps {
-  options: {
-    label: string;
-    value: string;
-  }[];
+  options: { label: string; value: string }[];
   value?: string;
   onChange: (value: string) => void;
 }
 
-export const ComboBox = ({ options, value, onChange }: ComboboxProps) => {
+export const Combobox = ({ options, value, onChange }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -37,7 +34,7 @@ export const ComboBox = ({ options, value, onChange }: ComboboxProps) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-full justify-between"
         >
           {value
             ? options.find((option) => option.value === value)?.label
@@ -45,7 +42,7 @@ export const ComboBox = ({ options, value, onChange }: ComboboxProps) => {
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-full p-0">
         <Command>
           <CommandInput placeholder="Search option..." />
           <CommandEmpty>No option found.</CommandEmpty>
