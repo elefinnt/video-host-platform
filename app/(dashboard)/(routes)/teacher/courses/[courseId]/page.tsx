@@ -1,4 +1,4 @@
-import { IconBade } from "@/components/icon-badge";
+import { IconBadge } from "@/components/icon-badge";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import {
@@ -82,7 +82,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
         <div>
           <div className="flex items-center gap-x-2">
-            <IconBade icon={LayoutDashboard} />
+            <IconBadge icon={LayoutDashboard} />
             <h2 className="text-xl">Customise your course</h2>
           </div>
           <TitleForm initialData={course} courseId={course.id} />
@@ -100,20 +100,20 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         <div className="space-y-6">
           <div>
             <div className="flex items-center gap-x-2">
-              <IconBade icon={ListChecks} />
+              <IconBadge icon={ListChecks} />
               <h2 className="text-xl">Course Chapters</h2>
             </div>
             <ChaptersForm initialData={course} courseId={course.id} />
           </div>
           <div>
             <div className="flex items-center gap-x-2">
-              <IconBade icon={CircleDollarSign} />
+              <IconBadge icon={CircleDollarSign} />
               <h2 className="text-xl">Sell your course</h2>
             </div>
             <PriceForm initialData={course} courseId={course.id} />
           </div>
           <div className="flex items-center gap-x-2">
-            <IconBade icon={File} />
+            <IconBadge icon={File} />
             <h2 className="text-xl">Resources & Attachments</h2>
           </div>
           <AttachmentForm initialData={course} courseId={course.id} />
