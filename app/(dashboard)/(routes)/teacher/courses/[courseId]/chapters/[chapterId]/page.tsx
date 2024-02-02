@@ -9,6 +9,7 @@ import { ChapterDescriptionForm } from "./_components/chapter-description-form";
 import { ChapterAccessForm } from "./_components/chapter-access-form";
 import { ChapterVideoForm } from "./_components/chapter-video-form";
 import { Banner } from "@/components/banner";
+import { ChapterActions } from "./_components/chapter-actions";
 
 const ChapterIdPage = async ({
   params,
@@ -42,6 +43,8 @@ const ChapterIdPage = async ({
 
   const completetionText = `(${completedFields}/${totalFields})`;
 
+  const isComplete = requiredFields.every(Boolean);
+
   return (
     <>
       {!chapter.isPublished && (
@@ -69,6 +72,12 @@ const ChapterIdPage = async ({
               </div>
             </div>
           </div>
+          <ChapterActions
+            disabled={!isComplete}
+            courseId={params.courseId}
+            chapterId={params.chapterId}
+            isPublished={chapter.isPublished}
+          />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
           <div className="space-y-4">
